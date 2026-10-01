@@ -287,3 +287,4 @@ Todos los derechos reservados. Prohibida su distribución o uso sin autorizació
 ---
 
 *EcoTrap v2.9.1 — EntomoLab · Flutter · Clean Architecture · Offline-First*
+# ecotrap-mejoras
