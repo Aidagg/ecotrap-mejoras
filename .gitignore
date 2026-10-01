@@ -1,0 +1,63 @@
+# ─── Miscellaneous ───────────────────────────────────────────
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# ─── VS Code ─────────────────────────────────────────────────
+# Descomenta si trabajas en equipo (evita conflictos de config)
+.vscode/
+
+# ─── IntelliJ / Android Studio ───────────────────────────────
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# ─── Flutter / Dart / Pub ────────────────────────────────────
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# ─── iOS / CocoaPods ─────────────────────────────────────────
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.last_build_id
+
+# ─── Android build artifacts ─────────────────────────────────
+/android/app/debug
+/android/app/profile
+/android/app/release
+/android/local.properties
+
+# ─── Firma y claves Android (NUNCA subir al repo) ────────────
+key.properties
+*.keystore
+*.jks
+
+# ─── Symbolication / Obfuscation ─────────────────────────────
+app.*.symbols
+app.*.map.json
+
+# ─── Seguridad — variables de entorno y claves API ───────────
+.env
+.env.*
+*.env
+
+# ─── Firebase (si lo usas ahora o en el futuro) ──────────────
+google-services.json
+GoogleService-Info.plist
