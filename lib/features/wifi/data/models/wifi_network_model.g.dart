@@ -20,10 +20,10 @@ class WiFiNetworkModelAdapter extends TypeAdapter<WiFiNetworkModel> {
       id: fields[0] as String,
       ssid: fields[1] as String,
       password: fields[2] as String,
-      createdAt: fields[3] as DateTime,
-      updatedAt: fields[4] as DateTime?,
       bssid: fields[5] as String?,
       name: fields[6] as String?,
+      createdAt: fields[3] as DateTime,
+      updatedAt: fields[4] as DateTime?,
     );
   }
 

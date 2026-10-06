@@ -95,6 +95,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
     required String? ssid,
     required String? password,
     String? bssid,
+    String? name,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -104,6 +105,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
             #ssid: ssid,
             #password: password,
             #bssid: bssid,
+            #name: name,
           },
         ),
         returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.WiFiNetwork>>.value(
@@ -116,6 +118,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
               #ssid: ssid,
               #password: password,
               #bssid: bssid,
+              #name: name,
             },
           ),
         )),
@@ -127,6 +130,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
     required String? ssid,
     required String? password,
     String? bssid,
+    String? name,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -137,6 +141,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
             #ssid: ssid,
             #password: password,
             #bssid: bssid,
+            #name: name,
           },
         ),
         returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.WiFiNetwork>>.value(
@@ -150,6 +155,7 @@ class MockWiFiRepository extends _i1.Mock implements _i3.WiFiRepository {
               #ssid: ssid,
               #password: password,
               #bssid: bssid,
+              #name: name,
             },
           ),
         )),
