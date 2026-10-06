@@ -1,0 +1,121 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <!-- ========================================== -->
+    <!-- PERMISOS WIFI - ANDROID 12-15            -->
+    <!-- ========================================== -->
+    
+    <!-- Permisos básicos WiFi (TODAS LAS VERSIONES) -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
+    <!-- Permisos de ubicación (REQUERIDOS para escaneo WiFi en Android < 13) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    
+    <!-- Android 10-12 (API 29-32): Ubicación en segundo plano -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"
+        android:maxSdkVersion="32"/>
+    
+    <!-- ✅ CRÍTICO: Android 13+ (API 33+): WiFi cercano SIN ubicación -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"/>
+    
+    <!-- ✅ NUEVO: Android 13+ (API 33+): Cambiar estado WiFi -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    
+    <!-- ✅ NUEVO: Android 14+ (API 34+): Conexión directa a WiFi -->
+    <uses-permission android:name="android.permission.OVERRIDE_WIFI_CONFIG"
+        tools:ignore="ProtectedPermissions"/>
+    
+    <!-- ========================================== -->
+    <!-- PERMISOS ALMACENAMIENTO (PARA DESCARGAS) -->
+    <!-- ========================================== -->
+    
+    <!-- Android < 13 (API < 33): Almacenamiento externo -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    
+    <!-- Android 11+ (API 30+): Gestión de almacenamiento -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage"/>
+    
+    <!-- ========================================== -->
+    <!-- CARACTERÍSTICAS DEL DISPOSITIVO          -->
+    <!-- ========================================== -->
+    
+    <uses-feature android:name="android.hardware.wifi" android:required="true"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN DE LA APLICACIÓN           -->
+    <!-- ========================================== -->
+    
+    <application
+        android:label="Ecotrap WiFi"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"
+        android:preserveLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"/>
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+    
+    <!-- ========================================== -->
+    <!-- QUERIES PARA INTENT FILTERS              -->
+    <!-- ========================================== -->
+    
+    <queries>
+        <!-- Abrir configuración WiFi -->
+        <intent>
+            <action android:name="android.settings.WIFI_SETTINGS"/>
+        </intent>
+        <intent>
+            <action android:name="android.provider.Settings.ACTION_WIRELESS_SETTINGS"/>
+        </intent>
+        <!-- Abrir configuración de la app -->
+        <intent>
+            <action android:name="android.settings.APPLICATION_DETAILS_SETTINGS"/>
+        </intent>
+    </queries>
+    
+</manifest>
