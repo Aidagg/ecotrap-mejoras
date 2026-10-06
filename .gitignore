@@ -60,4 +60,4 @@ app.*.map.json
 
 # ─── Firebase (si lo usas ahora o en el futuro) ──────────────
 google-services.json
-GoogleService-Info.plist
+GoogleService-Info.plistdevtools_options.yaml
